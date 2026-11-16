@@ -20,7 +20,8 @@ export const registerSchema = z.object({
   role: z.enum(['patient', 'doctor', 'institution_admin']),
   firstName: z.string().min(1, 'First name is required').optional(),
   lastName: z.string().min(1, 'Last name is required').optional(),
-  dateOfBirth: z.string().datetime().optional(),
+  // A birthday is a calendar date, not a timezone-specific instant.
+  dateOfBirth: z.string().date().optional(),
   gender: z.string().min(1).optional(),
   city: z.string().min(1).optional(),
 });
